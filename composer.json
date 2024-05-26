@@ -2,7 +2,14 @@
     "name": "dragonbe/connect-sdk-php",
     "description": "The 1Password Connect PHP SDK provides your PHP applications access to the 1Password Connect API hosted on your infrastructure and leverage the power of 1Password Secrets Automation",
     "type": "library",
-    "keywords": ["1password", "secret", "connect", "sdk", "php", "vault"],
+    "keywords": [
+        "1password",
+        "secret",
+        "connect",
+        "sdk",
+        "php",
+        "vault"
+    ],
     "autoload": {
         "psr-4": {
             "OnePassword\\Connect\\": "src/"
@@ -19,7 +26,7 @@
         "ext-json": "*",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
-        "psr/log": "^1.1"
+        "psr/log": "*"
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7.3",
@@ -47,7 +54,12 @@
         "csp-test": "phpunit",
         "csp-mutate": "infection",
         "csp-secure": "psalm",
-        "csp-qa": ["@csp-check", "@csp-test", "@csp-mutate", "@csp-secure"]
+        "csp-qa": [
+            "@csp-check",
+            "@csp-test",
+            "@csp-mutate",
+            "@csp-secure"
+        ]
     },
     "scripts-descriptions": {
         "csp-check": "Connect SDK for PHP - Check coding style",
