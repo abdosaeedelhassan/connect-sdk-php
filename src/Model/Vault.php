@@ -110,6 +110,9 @@ class Vault implements VaultInterface
         return $this->updatedAt;
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         $attributes = [];

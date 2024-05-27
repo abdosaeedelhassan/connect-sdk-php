@@ -40,21 +40,22 @@ class Item implements ItemInterface
      * @param string $lastEditedBy
      */
     public function __construct(
-        string $id = '',
-        string $title = '',
+        string          $id = '',
+        string          $title = '',
         ?VaultInterface $vault = null,
-        string $category = '',
-        array $sections = [],
-        ?Iterator $fields = null,
-        ?Iterator $urls = null,
-        bool $favourite = false,
-        array $tags = [],
-        int $version = 0,
-        bool $trashed = false,
-        string $createdAt = '',
-        string $updatedAt = '',
-        string $lastEditedBy = ''
-    ) {
+        string          $category = '',
+        array           $sections = [],
+        ?Iterator       $fields = null,
+        ?Iterator       $urls = null,
+        bool            $favourite = false,
+        array           $tags = [],
+        int             $version = 0,
+        bool            $trashed = false,
+        string          $createdAt = '',
+        string          $updatedAt = '',
+        string          $lastEditedBy = ''
+    )
+    {
         $this->id = $id;
         $this->title = $title;
         $this->vault = $vault;
@@ -181,5 +182,17 @@ class Item implements ItemInterface
     public function getLastEditedBy(): string
     {
         return $this->lastEditedBy;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $attributes = [];
+        foreach (get_class_vars(get_class($this)) as $key => $value) {
+            $attributes[$key] = $this->{$key};
+        }
+        return $attributes;
     }
 }
