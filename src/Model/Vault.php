@@ -112,6 +112,10 @@ class Vault implements VaultInterface
 
     public function toArray(): array
     {
-        return get_class_vars(get_class($this));
+        $attributes = [];
+        foreach (get_class_vars(get_class($this)) as $key => $value) {
+            $attributes[$key] = $this->{$key};
+        }
+        return $attributes;
     }
 }
