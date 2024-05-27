@@ -28,13 +28,14 @@ class Vault implements VaultInterface
     public function __construct(
         string $id = '',
         string $name = '',
-        int $attributeVersion = 0,
-        int $contentVersion = 0,
-        int $items = 0,
+        int    $attributeVersion = 0,
+        int    $contentVersion = 0,
+        int    $items = 0,
         string $type = '',
         string $createdAt = '',
         string $updatedAt = ''
-    ) {
+    )
+    {
         $this->id = $id;
         $this->name = $name;
         $this->attributeVersion = $attributeVersion;
@@ -107,5 +108,10 @@ class Vault implements VaultInterface
     public function getUpdatedAt(): string
     {
         return $this->updatedAt;
+    }
+
+    public function toArray(): array
+    {
+        return get_class_vars(get_class($this));
     }
 }
